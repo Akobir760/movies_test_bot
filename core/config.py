@@ -28,6 +28,13 @@ def get_connection():
 
 
 
-TOKEN = os.getenv("token")
+CHANNELS = [
+    {
+        "name": "channel 1", 
+        "link": "test_channeln66",
+        "chat_id": 2799858045
+    }
+]
 
+TOKEN = os.getenv("token")
 ADMIN_ID = 844817222 
