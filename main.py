@@ -4,6 +4,7 @@ from aiogram import Bot
 from loader import bot, dp
 from handlers import admin, user
 from core.database import create_table
+from middleware.subcription import SubscribeMiddleware
 
 
 async def starup_answer(bot: Bot):
@@ -17,7 +18,10 @@ async def main():
 
     dp.include_router(admin.router)
     dp.include_router(user.router)
-    await dp.start_polling(bot)
+
+    dp.message.middleware.register(SubscribeMiddleware())
+
+    await dp.start_polling(bot, polling_timeout=0)
 
 if __name__ == "__main__":
     asyncio.run(main())
