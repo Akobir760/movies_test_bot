@@ -16,7 +16,7 @@ async def list_movies(msg: types.Message):
         text = "\n".join([f"{k[0]}. {k[1]}" for k in kinolar])
     else:
         text = "Hozircha kinolar mavjud emas."
-    await msg.answer(text + "\n\nQaysi kino ID sini tanlasangiz, uni yuboring.")
+    await msg.answer(text + "\n\nQaysi kinoni tanlasangiz, uni IDsini yuboring.")
 
 
 @router.message(F.text.regexp(r"^\d+$"))
